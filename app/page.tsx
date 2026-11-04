@@ -15,10 +15,10 @@ export default async function Home({searchParams}: {searchParams: Promise<{searc
     const movies = await getMovies(query);
 
     return (
-        <>
+        <section className="text-center">
             <SearchForm search={search}/>
-            <h2 className="text-2xl font-bold text-center mb-4">Results for &quot;{query}&quot;</h2>
-            {movies.length === 0 ? <p className="text-center">No movies found.</p> : null}
+            <h2 className="text-2xl font-bold mb-4">Results for &quot;{query}&quot;</h2>
+            {movies.length === 0 ? <p>No movies found.</p> : null}
             <div className="flex flex-wrap justify-center gap-4">
                 {
                     movies.map((movie: Movie) =>
@@ -26,6 +26,6 @@ export default async function Home({searchParams}: {searchParams: Promise<{searc
                     )
                 }
             </div>
-        </>
+        </section>
     );
 }
